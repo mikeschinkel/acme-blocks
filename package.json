@@ -1,0 +1,19 @@
+{
+  "name": "colibri-blocks",
+  "version": "1.0.0",
+  "description": "Test Plugin for exploring Gutenberg blocks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "wp-scripts start",
+    "build": "wp-scripts build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/scripts": "6.2.0"
+  },
+  "dependencies": {
+    "@wordpress/components": "^9.0.0"
+  }
+}

@@ -1,0 +1,13 @@
+{
+	"require": {},
+	"config": {
+		"classmap-authoritative": true,
+		"optimize-autoloader": true,
+		"vendor-dir": "vendor"
+	},
+	"autoload": {
+		"psr-4": {
+			"Acme\\": "includes"
+		}
+	}
+}
