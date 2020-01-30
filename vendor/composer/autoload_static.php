@@ -24,6 +24,9 @@ class ComposerStaticInit632a69fc98358b58a1a8ca760652c707
         'Acme\\Blocks' => __DIR__ . '/../..' . '/includes/Blocks.php',
         'Acme\\Blocks\\Block' => __DIR__ . '/../..' . '/includes/Blocks/Block.php',
         'Acme\\Blocks\\Hero' => __DIR__ . '/../..' . '/includes/Blocks/Hero.php',
+        'Acme\\Components\\Component' => __DIR__ . '/../..' . '/includes/Components/Component.php',
+        'Acme\\Components\\Promotion' => __DIR__ . '/../..' . '/includes/Components/Promotion.php',
+        'Acme\\UiElements\\UiElement' => __DIR__ . '/../..' . '/includes/UiElements/UiElement.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

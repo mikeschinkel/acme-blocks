@@ -10,6 +10,7 @@ add_action( 'init',  function() {
 			'render_callback' => function ( $attributes, $content ) {
 				$hero = new Hero( $attributes );
 				ob_start();
+				$hero->the_style_html();
 				require( __DIR__ . '/render.php' );
 				return ob_get_clean();
 			},

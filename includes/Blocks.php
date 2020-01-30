@@ -17,8 +17,6 @@ class Blocks {
 	const PHP_FILENAME = 'index.php';
 	const JS_FILENAME = 'index.js';
 
-	private static $_script_dependencies = array();
-
 	/**
 	 *
 	 */
@@ -31,12 +29,12 @@ class Blocks {
 			$block->load();
 		}
 
-		add_action('admin_enqueue_scripts', [ self::class, '_admin_enqueue_scripts' ] );
+		add_action('enqueue_block_editor_assets', [ self::class, '_enqueue_block_editor_assets' ] );
 
 	}
 
 
-	static function _admin_enqueue_scripts() {
+	static function _enqueue_block_editor_assets() {
 		self::enqueue_script( true );
 	}
 
@@ -73,13 +71,19 @@ class Blocks {
 
 		register_block_type( $block->namespaced_name(), $block_args );
 
+		/**
+		 * @todo - These probably should be enqueing at
+		 *         'enqueue_block_editor_assets' or
+		 *         'enqueue_block_assets', respectively
+		 */
 		$block->register_style( 'editor', 'editor.css', $editor_style_dependencies );
 		$block->register_style( 'frontend', 'style.css', $style_dependencies );
 
 	}
 
 	static function blocks_dir(): string {
-		return sprintf( '%s/src/blocks', AcmeBlocks::DIR );
+		$format = str_replace( '/', DIRECTORY_SEPARATOR, '%s/src/blocks' );
+		return sprintf( $format, AcmeBlocks::DIR );
 	}
 
 	/**
@@ -122,7 +126,8 @@ class Blocks {
 	 *
 	 */
 	static function get_filepath( string $filename ): string {
-		return sprintf( '%s/%s',
+		$format = str_replace( '/', DIRECTORY_SEPARATOR, '%s/%s' );
+		return sprintf( $format,
 			AcmeBlocks::DIR,
 			$filename
 		);

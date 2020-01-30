@@ -9,4 +9,7 @@ return array(
     'Acme\\Blocks' => $baseDir . '/includes/Blocks.php',
     'Acme\\Blocks\\Block' => $baseDir . '/includes/Blocks/Block.php',
     'Acme\\Blocks\\Hero' => $baseDir . '/includes/Blocks/Hero.php',
+    'Acme\\Components\\Component' => $baseDir . '/includes/Components/Component.php',
+    'Acme\\Components\\Promotion' => $baseDir . '/includes/Components/Promotion.php',
+    'Acme\\UiElements\\UiElement' => $baseDir . '/includes/UiElements/UiElement.php',
 );

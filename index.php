@@ -10,8 +10,8 @@ class AcmeBlocks {
 	 *
 	 */
 	static function on_load() {
-
-		require __DIR__ . '/vendor/autoload.php';
+		$format = str_replace( '/', DIRECTORY_SEPARATOR, '%s/vendor/autoload.php' );
+		require sprintf( $format, __DIR__ );
 		add_action( 'init', [ self::class, '_init'] );
 
 		Blocks::load();

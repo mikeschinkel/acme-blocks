@@ -165,25 +165,15 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('acm
     },
     subheader: {
       type: 'string'
+    },
+    discount: {
+      type: 'number'
     }
   },
   edit: function edit(props) {
     var attributes = props.attributes,
         className = props.className,
         setAttributes = props.setAttributes;
-
-    var updateHeader = function updateHeader(event) {
-      setAttributes({
-        header: event.target.value
-      });
-    };
-
-    var updateSubheader = function updateSubheader(event) {
-      setAttributes({
-        subheader: event.target.value
-      });
-    };
-
     var divStyle = {
       border: "1px solid red",
       padding: "0 2em"
@@ -206,16 +196,37 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["registerBlockType"])('acm
       type: "text",
       size: "75",
       value: attributes.header,
-      onChange: updateHeader
+      onChange: function onChange(event) {
+        return setAttributes({
+          header: event.target.value
+        });
+      }
     })), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
       htmlFor: "subheader"
     }, "Subheader: "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("br", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("textarea", {
       id: "subheader",
       rows: "3",
       cols: "74",
-      onChange: updateSubheader
-    }, attributes.subheader)));
-  } // save: (props) => {
+      onChange: function onChange(event) {
+        return setAttributes({
+          subheader: event.target.value
+        });
+      }
+    }, attributes.subheader)), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("p", null, Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("label", {
+      htmlFor: "discount"
+    }, "Discount: "), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("br", null), Object(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__["createElement"])("input", {
+      id: "discount",
+      type: "text",
+      size: "7",
+      value: attributes.discount,
+      onChange: function onChange(event) {
+        return setAttributes({
+          discount: event.target.value
+        });
+      }
+    })));
+  } // ,
+  // save: (props) => {
   //    const {attributes,className,setAttributes} = props;
   //    return (
   //       <div class={props.className}>

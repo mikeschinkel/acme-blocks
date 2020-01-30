@@ -39,16 +39,13 @@ registerBlockType('acme/hero', {
       },
       subheader: {
          type: 'string',
+      },
+      discount: {
+         type: 'number',
       }
    },
    edit: (props) => {
       const {attributes,className,setAttributes} = props;
-      const updateHeader = (event) => {
-         setAttributes({header: event.target.value})
-      };
-      const updateSubheader = (event) => {
-         setAttributes({subheader: event.target.value})
-      };
       const divStyle = {
          border: "1px solid red",
          padding: "0 2em"
@@ -64,16 +61,20 @@ registerBlockType('acme/hero', {
             <div style={titleStyle}>[ Hero ]</div>
             <p>
                <label htmlFor="header">Header: </label><br/>
-               <input id="header" type="text" size="75" value={attributes.header} onChange={updateHeader} />
+               <input id="header" type="text" size="75" value={attributes.header} onChange={event => setAttributes({header: event.target.value})} />
             </p>
             <p>
                <label htmlFor="subheader">Subheader: </label><br/>
-               <textarea id="subheader" rows="3" cols="74" onChange={updateSubheader}>{attributes.subheader}</textarea>
+               <textarea id="subheader" rows="3" cols="74" onChange={event => setAttributes({subheader: event.target.value})}>{attributes.subheader}</textarea>
+            </p>
+            <p>
+               <label htmlFor="discount">Discount: </label><br/>
+               <input id="discount" type="text" size="7" value={attributes.discount} onChange={event => setAttributes({discount: event.target.value})} />
             </p>
          </div>
       )
    }
-   ,
+   // ,
    // save: (props) => {
    //    const {attributes,className,setAttributes} = props;
    //    return (

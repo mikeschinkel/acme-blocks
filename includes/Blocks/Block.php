@@ -3,8 +3,9 @@
 namespace Acme\Blocks;
 
 use Acme\Blocks;
+use Acme\UiElements\UiElement;
 
-class Block {
+class Block extends UiElement {
 
 	private $_block_name;
 
@@ -54,7 +55,8 @@ class Block {
 	 *
 	 */
 	function get_filepath( string $filename ): string {
-		return sprintf( '%s/%s',
+		$format = str_replace( '/', DIRECTORY_SEPARATOR, '%s/%s' );
+		return sprintf( $format,
 			$this->dir(),
 			$filename
 		);
@@ -72,6 +74,13 @@ class Block {
 	 */
 	function php_filepath(): string {
 		return $this->get_filepath( Blocks::PHP_FILENAME );
+	}
+
+	/**
+	 *
+	 */
+	function the_class_attr() {
+		echo esc_attr( $this->namespaced_name() );
 	}
 
 	/**
@@ -104,7 +113,8 @@ class Block {
 	 *
 	 */
 	function dir(): string {
-		return sprintf( '%s/%s',
+		$format = str_replace( '/', DIRECTORY_SEPARATOR, '%s/%s' );
+		return sprintf( $format,
 			Blocks::blocks_dir(),
 			$this->_block_name
 		);
