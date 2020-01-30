@@ -75,7 +75,7 @@ class UiElement {
 				if ( ! is_object( $object ) ) {
 					continue;
 				}
-				if ( ! method_exists( $object, $func = 'the_style_html' ) ) {
+				if ( ! $object instanceof self ) {
 					continue;
 				}
 				$css .= $object->_load_css();
